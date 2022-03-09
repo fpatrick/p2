@@ -138,7 +138,7 @@ function calcTDEE(person) {
         tdee = ((10 * person.weight) + (6.25 * person.height) - (5 * person.age) - 161) * activity;
     }
 
-    alert(tdee);
+    return tdee;
 }
 
 // on submit
