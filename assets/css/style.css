@@ -33,6 +33,11 @@
     background-color: red;
 }
 
+/* Navbar */
+
+.navBg {
+    background-image: linear-gradient(to bottom, rgb(31, 31, 31), var(--gray5-color));
+}
 
  /* Cards */
 .card {
@@ -56,3 +61,4 @@
 .calcBg {
     background-color: var(--gray5-color);
 }
+
