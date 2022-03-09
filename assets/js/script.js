@@ -130,11 +130,15 @@ function calcTDEE(person) {
         default:
             activity = 1.2;
       } 
+      
+    // calculate tdee based on gender
     if (person.gender == "male") {
         tdee = ((10 * person.weight) + (6.25 * person.height) - (5 * person.age) + 5) * activity;
     } else if (person.gender == "female") {
         tdee = ((10 * person.weight) + (6.25 * person.height) - (5 * person.age) - 161) * activity;
     }
+
+    alert(tdee);
 }
 
 // on submit
@@ -143,6 +147,7 @@ function handleSubmit(event){
 
     let person = {};
     person.activity = document.getElementById("activity").value;
+    person.age = document.getElementById("age").value;
 
     let male = document.getElementById("male");
     let female = document.getElementById("female");
@@ -166,6 +171,6 @@ function handleSubmit(event){
         person.weight = document.getElementById("weight").value;
     }
 
-    
+    calcTDEE(person);
     //form.submit();
 }
