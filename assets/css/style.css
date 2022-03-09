@@ -31,13 +31,13 @@
 }
 
  .card-body {
-     background-color: var(--gray3-color);
+     background-color: var(--gray4-color);
  }
 
 .card-header{
-    background-color: var(--gray4-color);
+    background-color: var(--gray5-color);
 }
 
 .card-footer {
-    background-color: var(--gray4-color);
+    background-color: var(--gray5-color);
 }
