@@ -12,21 +12,32 @@
 
   }
 
-/* Inicial Preparations */ 
-
-* {
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-html,body{
-    overflow-x: hidden;
-}
-
-/* General Body and Font Style */ 
+/* Body and Font Style */ 
 
  body {
      background-color: var(--gray6-color);
      color: var(--lightgray6-color);
  }
+
+/* General use classes */
+
+.myMuted {
+    color: var(--gray1-color);
+}
+
+ /* Cards */
+.card {
+    border-color: var(--gray5-color);;
+}
+
+ .card-body {
+     background-color: var(--gray3-color);
+ }
+
+.card-header{
+    background-color: var(--gray4-color);
+}
+
+.card-footer {
+    background-color: var(--gray4-color);
+}
