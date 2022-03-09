@@ -33,10 +33,10 @@
     background-color: red;
 }
 
-/* Navbar */
+/* Navbar   background-image: linear-gradient(to bottom, rgb(31, 31, 31), var(--gray5-color));*/
 
 .navBg {
-    background-image: linear-gradient(to bottom, rgb(31, 31, 31), var(--gray5-color));
+    background-color: rgba(44, 44, 46, 0.452);
 }
 
  /* Cards */
