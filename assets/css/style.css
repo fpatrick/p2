@@ -1,0 +1,32 @@
+/* Global Colors */ 
+:root {
+    --gray1-color: rgb(142, 142, 147);
+    --gray2-color: rgb(99, 99, 102);
+    --gray3-color: rgb(72, 72, 74);
+    --gray4-color: rgb(58, 58, 60);
+    --gray5-color: rgb(44, 44, 46);
+    --gray6-color: rgb(28, 28, 30);
+
+    --lightgray4-color: rgb(209, 209, 214);
+    --lightgray6-color: rgb(242, 242, 247);
+
+  }
+
+/* Inicial Preparations */ 
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+html,body{
+    overflow-x: hidden;
+}
+
+/* General Body and Font Style */ 
+
+ body {
+     background-color: var(--gray6-color);
+     color: var(--lightgray6-color);
+ }
