@@ -45,29 +45,104 @@
             <div class="py-5 text-center">
                 <h1 class="display-5"> TDEE Calculator + BMI </h1>
             </div>
-            <div class="container-fluid calcBg p-5">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6 offset-md-3 red p-5">
+                    <div class="col-md-6 offset-md-3 p-5 rounded calcBg">
                         <form>
+
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Metric
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Imperial
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+
                             <div class="row mb-4">
                                 <div class="col">
                                     <div class="form-floating">
                                         <input class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></input>
-                                        <label for="floatingTextarea" class="black"> Comments</label>
+                                        <label for="floatingTextarea" class="black"> Height</label>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <p>dasdasdsad</p>
+                                    <p>centimeters</p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col mb-4">
+
+                            <div class="row mb-4">
+                                <div class="col">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Comments</label>
+                                        <input class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></input>
+                                        <label for="floatingTextarea" class="black"> Weight</label>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <p>kilograms</p>
+                                </div>
                             </div>
+
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></input>
+                                        <label for="floatingTextarea" class="black"> Age</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p></p>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Select your level of activity</option>
+                                        <option value="1">Sedentary (limited exercise)</option>
+                                        <option value="2">Lightly active (light exercise less than three days per week)</option>
+                                        <option value="3">Moderately active (moderate exercise most days of the week)</option>
+                                        <option value="3">Very active (hard exercise every day)</option>
+                                        <option value="3">Extra active (strenuous exercise two or more times per day)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault3" checked>
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Male
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault4">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Female
+                                        </label>
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col offset-md-5 ">
+                                    <button type="submit" class="btn btn-primary">Calculate!</button>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>

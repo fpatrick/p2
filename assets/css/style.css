@@ -54,5 +54,5 @@
 /* Calculators */
 
 .calcBg {
-    background-color: black;
+    background-color: var(--gray5-color);
 }
