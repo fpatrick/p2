@@ -107,6 +107,36 @@ function calcBMI(height, weight) {
     return Math.round( (weight / Math.pow(height, 2)) * 100) / 100;
 }
 
+//Calculate TDAA
+function calcTDEE(person) {
+    let tdee;
+    let activity;
+    switch(person.activity) {
+        case "sedentary":
+            activity = 1.2;
+            break;
+        case "light":
+            activity = 1.375;
+            break;
+        case "moderate":
+            activity = 1.55;
+            break;
+        case "very":
+            activity = 1.725;
+            break;
+        case "extra":
+            activity = 1.9;
+            break;
+        default:
+            activity = 1.2;
+      } 
+    if (person.gender == "male") {
+        tdee = ((10 * person.weight) + (6.25 * person.height) - (5 * person.age) + 5) * activity;
+    } else if (person.gender == "female") {
+        tdee = ((10 * person.weight) + (6.25 * person.height) - (5 * person.age) - 161) * activity;
+    }
+}
+
 // on submit
 function handleSubmit(event){
     event.preventDefault();
@@ -136,8 +166,6 @@ function handleSubmit(event){
         person.weight = document.getElementById("weight").value;
     }
 
-    alert(person.height);
+    
     //form.submit();
 }
-
-alert(calcBMI(165, 68));
