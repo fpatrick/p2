@@ -138,7 +138,7 @@ function calcTDEE(person) {
         tdee = ((10 * person.weight) + (6.25 * person.height) - (5 * person.age) - 161) * activity;
     }
 
-    return tdee;
+    return Math.round(tdee);
 }
 
 // on submit
@@ -171,6 +171,6 @@ function handleSubmit(event){
         person.weight = document.getElementById("weight").value;
     }
 
-    calcTDEE(person);
+    alert("Your tdee: " + calcTDEE(person) + " and bmi: " + calcBMI(person.height, person.weight));
     //form.submit();
 }
