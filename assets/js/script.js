@@ -158,6 +158,16 @@ function calcTDEE(person) {
     return Math.round(tdee);
 }
 
+// Calculate macros
+function calcMacros(tdee) {
+    let macros = {};
+    macros.carbs = Math.pow((tdee * 0.40) / 4);
+    macros.fats = Math.pow((tdee * 0.30) / 9);
+    macros.proteins = Math.pow((tdee * 0.30) / 4);
+
+    return macros;
+}
+
 // Build BMI card
 function buildBMI(bmi) {
     let html = `
@@ -168,7 +178,7 @@ function buildBMI(bmi) {
         <div class="card-body">
             <h5 class="card-title">
                 Your BMI is 
-                <span class="${bmi.color}">${bmi.number}</span> 
+                <p class="${bmi.color} h2 fw-bolder">${bmi.number}</p> 
                 and weight status is 
                 <span class="${bmi.color}">${bmi.status}</span> 
             </h5>
@@ -179,7 +189,52 @@ function buildBMI(bmi) {
     return html;
 }
 
+// Build TDEE card
+function buildTDEE(tdee) {
+    let html = `
+    <div class="card text-center">
+        <div class="card-header">
+         Total Daily Energy Expenditure
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Your TDEE is 
+                <p class="text-info h2 fw-bolder">${tdee}</p> 
+                calories daily
+            </h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+    </div>
+    ` 
+    return html;
+}
 
+// Build macro card
+function buildMacro() {
+    let html = `
+        <div class="card text-center">
+            <div class="card-header">
+            Total Daily Energy Expenditure
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    Your TDEE is 
+                    <p class="text-info h2 fw-bolder">${tdee}</p> 
+                    calories daily
+                </h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+        </div>
+    ` 
+    return html;
+
+}
+// Build recomendations card
+function buildTips() {
+
+}
+
+// put all cards together
 function glueCards(bmi, tdee) {
     let html = `
         <div class="row">
@@ -228,7 +283,7 @@ function handleSubmit(event){
 
     let tdeeResult = calcTDEE(person);
     let bmiResult = calcBMI(person.height, person.weight);
-    let tdee = "aqui vem o tdee";
+    let tdee = buildTDEE(tdeeResult);
     let bmi = buildBMI(bmiResult);
 
     document.getElementById("cards").innerHTML = glueCards(bmi, tdee);
