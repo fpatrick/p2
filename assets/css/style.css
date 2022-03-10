@@ -17,7 +17,7 @@
  body {
      background-color: var(--gray6-color);
      color: var(--lightgray6-color);
-    bottom: 0;
+    
      min-height: 100vh;
  }
 
@@ -43,7 +43,7 @@
 
  /* Cards */
 .card {
-    border-color: var(--gray5-color);;
+    border-color: var(--gray5-color);
 }
 
  .card-body {
