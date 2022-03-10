@@ -17,8 +17,6 @@
  body {
      background-color: var(--gray6-color);
      color: var(--lightgray6-color);
-
-     height: 100%;
  }
 
 /* General use classes */
@@ -64,3 +62,11 @@
     background-color: var(--gray5-color);
 }
 
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
