@@ -101,10 +101,23 @@ function convertImperial(iHeightF, iHeightIn, iWeight) {
 
 // Calculate BMI
 function calcBMI(height, weight) {
+    let bmi = {};
     // Convert cm to meters
     height = height / 100;
     // pow gives meters squared - round ((value) * 100) / 100 so I can get 2 decimal places 
-    return Math.round( (weight / Math.pow(height, 2)) * 100) / 100;
+    bmi.number = Math.round( (weight / Math.pow(height, 2)) * 100) / 100;
+    
+    if (bmi.number < 18.5) {
+        bmi.status = "underweight";
+    } else if (bmi.number >= 18.5 && bmi.number <= 24.9) {
+        bmi.status = "healthy";
+    } else if (bmi.number >= 25.0 && bmi.number <= 29.9) {
+        bmi.status = "overweight";
+    } else if (bmi.number >= 30.0) {
+        bmi.status = "obesity";
+    }
+
+    return bmi;
 }
 
 //Calculate TDAA
@@ -141,6 +154,30 @@ function calcTDEE(person) {
     return Math.round(tdee);
 }
 
+// Build BMI card
+function buildBMI() {
+    let bmiHTML = `
+    <div class="card text-center">
+        <div class="card-header">
+        Featured
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer text-muted">
+        2 days ago
+        </div>
+    </div>
+    ` 
+}
+
+
+
+
+
+
 // on submit
 function handleSubmit(event){
     event.preventDefault();
@@ -162,6 +199,7 @@ function handleSubmit(event){
         let heightInches = document.getElementById("heightInches").value;
         let weightPounds = document.getElementById("weightPounds").value;
 
+        // convert imperial to metric system
         let convertion = convertImperial(heightFeet, heightInches, weightPounds);
         person.height = convertion.height;
         person.weight = convertion.weight;
@@ -171,6 +209,10 @@ function handleSubmit(event){
         person.weight = document.getElementById("weight").value;
     }
 
-    alert("Your tdee: " + calcTDEE(person) + " and bmi: " + calcBMI(person.height, person.weight));
+    let tdee = calcTDEE(person);
+    let bmi = calcBMI(person.height, person.weight);
+
+    
     //form.submit();
 }
+
