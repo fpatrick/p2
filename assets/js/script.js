@@ -167,28 +167,17 @@ function calcMacros(tdee) {
             tdee: tdee,
             carbs: Math.round((tdee * 0.40) / 4),
             fats: Math.round((tdee * 0.30) / 9),
-            proteins: Math.round((tdee * 0.30) / 4),
+            proteins: Math.round((tdee * 0.30) / 4)
         },
         //Lose weight
         cut: {
-            test: "nada"
+            tdee: tdeeCut,
+            carbs: Math.round((tdeeCut * 0.40) / 4),
+            fats: Math.round((tdeeCut * 0.30) / 9),
+            proteins: Math.round((tdeeCut * 0.30) / 4)
         }
     };
    
-    //Maintain weight
-    //macros.main.carbs = Math.pow((tdee * 0.40) / 4);
-    
-    //macros.main.fats = Math.pow((tdee * 0.30) / 9);
-    //macros.main.proteins = Math.pow((tdee * 0.30) / 4);
-   // macros.main.tdee = tdee;
-
-    
-    //tdee -= 500;
-    //macros.cut.carbs = Math.pow((tdee * 0.40) / 4);
-    //macros.cut.fats = Math.pow((tdee * 0.30) / 9);
-    //macros.cut.proteins = Math.pow((tdee * 0.30) / 4);
-    //macros.cut.tdee = tdee;
-
     return macros;
 }
 
@@ -238,20 +227,32 @@ function buildMacros(macros) {
     let html = `
         <div class="card text-center">
             <div class="card-header">
-                Average Macronutrients Sugestion
+                Average Macronutrients Recommendation
             </div>
             <div class="card-body">
-                <div class="col>
-
-                    <h5 class="card-title">
-                        Your TDEE is 
-                        
-                    </h5>
-
-                    <p class="text-info h2 fw-bolder">${macros.main.carbs}</p> 
-                    calories daily
-                </div>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <h5 class="card-title">
+                    Based on <mark class="fw-bolder">${macros.main.tdee}</mark> cal. to maintain weight or <mark class="fw-bolder">${macros.cut.tdee}</mark>
+                     cal. to lose weight
+                </h5>
+                <p class="card-text">
+                    (40% carbs 30% fats 30% proteins)
+                </p>
+                <p class="card-text"> 
+                    <span class="fw-bolder text-decoration-underline">Maintain</span> Weight:
+                    <span class="h2">${macros.main.carbs}</span> Carbs
+                    <span class="h2">${macros.main.fats}</span> Fats
+                    <span class="h2">${macros.main.proteins}</span> Proteins
+                </p>
+                <p class="card-text"> 
+                    <span class="fw-bolder text-decoration-underline">Lose</span>  Weight:
+                    <span class="h2">${macros.cut.carbs}</span> Carbs
+                    <span class="h2">${macros.cut.fats}</span> Fats
+                    <span class="h2">${macros.cut.proteins}</span> Proteins
+                </p>
+                <p class="card-text fw-lighter">
+                    Keep in mind that these recommendations may not fit your specific needs.
+                    Your ratio can be fine-tuned in order to achieve specific objectives.
+                </p>
             </div>
         </div>
     ` 
@@ -274,7 +275,7 @@ function glueCards(bmi, tdee, macros) {
                 ${tdee}
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col">
                 ${macros}
             </div>
