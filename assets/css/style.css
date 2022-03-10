@@ -17,6 +17,8 @@
  body {
      background-color: var(--gray6-color);
      color: var(--lightgray6-color);
+
+     height: 100%;
  }
 
 /* General use classes */
