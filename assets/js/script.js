@@ -275,7 +275,7 @@ function buildTips(tdee) {
             </div>
             <div class="card-body">
                 <h5 class="card-title">
-                    Tools to help you achive your objectives
+                    Tools to help you achieve your goals
                 </h5>
                 <p class="card-text"> 
                     <span class="fw-bolder text-info">Calorie Tracker: </span>
