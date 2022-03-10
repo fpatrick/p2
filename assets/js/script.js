@@ -234,21 +234,21 @@ function buildMacros(macros) {
                 Average Macronutrients Recommendation
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-                    Based on <mark class="fw-bolder">${macros.main.tdee}</mark> cal. to maintain weight or <mark class="fw-bolder">${macros.cut.tdee}</mark>
-                     cal. to lose weight
-                </h5>
                 <p class="card-text">
-                    (40% carbs 30% fats 30% proteins)
+                    Based on <span class="fw-bolder">${macros.main.tdee}</span> cal. to maintain weight or <span class="fw-bolder">${macros.cut.tdee}</span>
+                     cal. to lose weight:
+                </p>
+                <p class="card-text">
+                    <span class="text-muted">(40% carbs 30% fats 30% proteins)</span>
                 </p>
                 <p class="card-text"> 
-                    <span class="fw-bolder text-decoration-underline">Maintain</span> Weight:
+                    <span class="fw-bolder text-info">Maintain</span> Weight:
                     <span class="h2">${macros.main.carbs}</span> Carbs
                     <span class="h2">${macros.main.fats}</span> Fats
                     <span class="h2">${macros.main.proteins}</span> Proteins
                 </p>
                 <p class="card-text"> 
-                    <span class="fw-bolder text-decoration-underline">Lose</span>  Weight:
+                    <span class="fw-bolder text-info">Lose</span>  Weight:
                     <span class="h2">${macros.cut.carbs}</span> Carbs
                     <span class="h2">${macros.cut.fats}</span> Fats
                     <span class="h2">${macros.cut.proteins}</span> Proteins
@@ -275,17 +275,17 @@ function buildTips(tdee) {
                     Tools to help you achive your objectives
                 </h5>
                 <p class="card-text"> 
-                    <span class="fw-bolder text-primary">Calorie Tracker: </span>
+                    <span class="fw-bolder text-info">Calorie Tracker: </span>
                     App for iOS and Android
                     <a href="https://www.myfitnesspal.com">MyFitnessPal</a>.
                 </p>
                 <p class="card-text"> 
-                    <span class="fw-bolder text-primary">Recipes: </span>
+                    <span class="fw-bolder text-info">Recipes: </span>
                     Create personalized meal plans based on your food preferences, budget, and schedule with 
                     <a href="https://www.eatthismuch.com/?generate=1&diet_type=anything&cals=${tdee}">EatThisMuch</a>.
                 </p>
                  <p class="card-text"> 
-                    <span class="fw-bolder text-primary">Have at home: </span>
+                    <span class="fw-bolder text-info">Have at home: </span>
                     A good <strong>food scale</strong> and <strong>bathroom scale.</strong>
                     
                 </p>
@@ -363,7 +363,10 @@ function handleSubmit(event){
     let macrosHTML = buildMacros(macros);
     let tips = buildTips(tdee);
 
-    document.getElementById("cards").innerHTML = glueCards(bmiHTML, tdeeHTML, macrosHTML, tips);
+    let cards = document.getElementById("cards");
+    cards.innerHTML = glueCards(bmiHTML, tdeeHTML, macrosHTML, tips);
+    cards.scrollIntoView();
+
     
     //form.submit();
 }
