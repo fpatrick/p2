@@ -17,6 +17,8 @@
  body {
      background-color: var(--gray6-color);
      color: var(--lightgray6-color);
+    bottom: 0;
+     min-height: 100vh;
  }
 
 /* General use classes */
@@ -62,11 +64,12 @@
     background-color: var(--gray5-color);
 }
 
+/* Footer */
 
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    clear: both;
+    position: relative;
+    height: 75px;
+    margin-top: -75px;
     text-align: center;
-  }
+}
