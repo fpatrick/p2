@@ -81,10 +81,13 @@ function buildImperial(event) {
     `
 }
 
-// Listen to Submit form event
+// Listen to Submit (tdee) and click (bmi) form event
 
-let form = document.getElementById("tdeeForm");
+let form = document.getElementById("form");
 form.addEventListener('submit', handleSubmit);
+
+let formB = document.getElementById("calculate");
+formB.addEventListener('click', handleSubmitB);
 
 // Convert Imperial to metric 
 function convertImperial(iHeightF, iHeightIn, iWeight) {
@@ -236,7 +239,7 @@ function buildMacros(macros) {
             <div class="card-body">
                 <p class="card-text">
                     Based on <span class="fw-bolder">${macros.main.tdee}</span> cal. to maintain weight or <span class="fw-bolder">${macros.cut.tdee}</span>
-                     cal. to lose weight:
+                     cal. to lose weight
                 </p>
                 <p class="card-text">
                     <span class="text-muted">(40% carbs 30% fats 30% proteins)</span>
@@ -300,7 +303,7 @@ function buildTips(tdee) {
 }
 
 // put all cards together
-function glueCards(bmi, tdee, macros, tips) {
+function glueCards(bmi, tdee = "", macros = "", tips = "") {
     let html = `
         <div class="row">
             <div class="col">
@@ -323,7 +326,7 @@ function glueCards(bmi, tdee, macros, tips) {
     return html;
 }
 
-// on submit
+// on submit tdee
 function handleSubmit(event){
     event.preventDefault();
 
@@ -367,7 +370,34 @@ function handleSubmit(event){
     cards.innerHTML = glueCards(bmiHTML, tdeeHTML, macrosHTML, tips);
     cards.scrollIntoView();
 
-    
+
     //form.submit();
 }
 
+// on submit bmi
+function handleSubmitB(event){
+    let person = {};
+    
+    if (imperial.checked) {
+        let heightFeet = document.getElementById("heightFeet").value;
+        let heightInches = document.getElementById("heightInches").value;
+        let weightPounds = document.getElementById("weightPounds").value;
+
+        // convert imperial to metric system
+        let convertion = convertImperial(heightFeet, heightInches, weightPounds);
+        person.height = convertion.height;
+        person.weight = convertion.weight;
+
+    }  else {
+        person.height = document.getElementById("height").value;
+        person.weight = document.getElementById("weight").value;
+    }
+
+    let bmi = calcBMI(person.height, person.weight);
+    let bmiHTML = buildBMI(bmi);
+    let tips = buildTips("");
+
+    let cards = document.getElementById("cards");
+    cards.innerHTML = glueCards(bmiHTML, "", "", tips);
+    cards.scrollIntoView();
+}

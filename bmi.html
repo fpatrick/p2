@@ -1,88 +1,122 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Optional meta tags -->
+  <meta name="description" content="Calculator for TDEE and BMI. Tips to achieve your ideal weight">
+  <meta name="keywords" content="tdee, bmi, calories daily, health weight, macro nutrients, flex diet">
 
-    <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/dd97c29b4c.js" crossorigin="anonymous"></script>
 
-    <title>Your Numbers - BMI</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar w/ text</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-            </ul>
-            <span class="navbar-text">
-              Navbar text with an inline element
-            </span>
+  <!-- Bootstrap CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <title>Your Numbers - BMI Calculator</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navBg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Your Numbers</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tdee.html">TDEE Calculator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="bmi.html">BMI Calculator</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            <i class="fa-solid fa-envelope"></i> erick.patrick@pm.me
+          </span>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="py-5 text-center">
+        <h1 class="display-5"> BMI Calculator </h1>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 p-5 rounded calcBg">
+            <form id="form">
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="whatSystem" id="metricSystem" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Metric (cm / kg)
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="whatSystem" id="imperialSystem">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Imperial (ft / lbs)
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <div id="heightWeight">
+                <!-- Metric or Imperial system build on javascript -->
+              </div>
+
+              <div class="row">
+                <div class="col offset-md-5 ">
+                  <button type="button" id="calculate" class="btn btn-primary"><i class="fa-solid fa-calculator"></i>  Calculate!</button>
+                </div>
+              </div>
+
+            </form>
           </div>
         </div>
-      </nav>
-    </header>
-    <main>
-      <div class="d-flex">
-        <div class="row text-center ">
-            <h1>What I need today is...</h1>
+      </div>
+    </div>
+  </main>
+  <section>
+    <div class="container mt-5">
+      <div id="row mt-5">
+        <div id="cards">
+          <!-- Generate cards with scripts -->
         </div>
       </div>
-    </main>
-    <footer>
+    </div>
+  </section>
 
-    </footer>
+  
+  <footer class="footer mt-5 py-3 navBg">
+    <div class="container">
+      <span class="text-muted">© 2022 Erick Patrick <i class="fa-solid fa-envelope"></i> erick.patrick@pm.me</span>
+    </div>
+  </footer>
 
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <!--My Custom Script -->
-    <script src="assets/js/script.js"></script>
-  </body>
+  <!--My Custom Script -->
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
-
-
-
-
-<div class="row mb-4">
-  <div class="col">
-      <div class="form-floating">
-          <input required type="number" class="form-control" placeholder="Enter your height" id="height"></input>
-          <label for="height" class="black">height</label>
-      </div>
-  </div>
-  <div class="col">
-      <span>centimeters</span>
-  </div>
-</div>
-
-<div class="row mb-4">
-  <div class="col">
-      <div class="form-floating">
-          <input required type="number" class="form-control" placeholder="Enter your weight" id="weight"></input>
-          <label for="weight" class="black">weight</label>
-      </div>
-  </div>
-  <div class="col">
-      <span>kilograms</span>
-  </div>
-</div>
