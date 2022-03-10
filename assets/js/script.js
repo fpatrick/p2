@@ -187,7 +187,7 @@ function calcMacros(tdee) {
 // Build BMI card
 function buildBMI(bmi) {
     let html = `
-    <div class="card bg-dark text-center">
+    <div class="card bg-dark border-dark text-center">
         <div class="card-header">
             Body Mass Index
         </div>
@@ -210,7 +210,7 @@ function buildBMI(bmi) {
 // Build TDEE card
 function buildTDEE(tdee) {
     let html = `
-    <div class="card bg-dark text-center">
+    <div class="card bg-dark border-dark text-center">
         <div class="card-header">
          Total Daily Energy Expenditure
         </div>
@@ -232,7 +232,7 @@ function buildTDEE(tdee) {
 // Build macro card
 function buildMacros(macros) {
     let html = `
-        <div class="card bg-dark text-center">
+        <div class="card bg-dark border-dark text-center">
             <div class="card-header">
                 Average Macronutrients Recommendation
             </div>
@@ -269,7 +269,7 @@ function buildMacros(macros) {
 // Build recomendations card
 function buildTips(tdee) {
     let html = `
-        <div class="card bg-dark text-center">
+        <div class="card bg-dark border-dark text-center">
             <div class="card-header">
                 Tools Recomendation
             </div>

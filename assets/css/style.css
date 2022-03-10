@@ -66,10 +66,10 @@
 
 /* Footer */
 
-.footer {
-    clear: both;
-    position: relative;
-    height: 75px;
-    margin-top: -75px;
-    text-align: center;
+.borderBottom {
+    border-bottom: 1px solid var(--gray5-color) !important;
+}
+
+.mFooter {
+    margin-top: 75px;
 }
