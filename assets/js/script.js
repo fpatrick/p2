@@ -41,7 +41,7 @@ function buildMetric(event) {
                 <span>kilograms</span>
             </div>
         </div>
-    `
+    `;
 }
 
 function buildImperial(event) {
@@ -78,7 +78,7 @@ function buildImperial(event) {
                 <span>pounds</span>
             </div>
         </div>
-    `
+    `;
 }
 
 // Listen to Submit (tdee) and click (bmi) form event
@@ -203,7 +203,7 @@ function buildBMI(bmi) {
             </p>
         </div>
     </div>
-    ` 
+    `;
     return html;
 }
 
@@ -225,7 +225,7 @@ function buildTDEE(tdee) {
             </p>
         </div>
     </div>
-    ` 
+    `;
     return html;
 }
 
@@ -262,7 +262,7 @@ function buildMacros(macros) {
                 </p>
             </div>
         </div>
-    ` 
+    `;
     return html;
 
 }
@@ -285,7 +285,7 @@ function buildTips(tdee) {
                 <p class="card-text"> 
                     <span class="fw-bolder text-info">Recipes: </span>
                     Create personalized meal plans based on your food preferences, budget, and schedule with 
-                    <a href="https://www.eatthismuch.com/?generate=1&diet_type=anything&cals=${tdee}">EatThisMuch</a>.
+                    <a href="https://www.eatthismuch.com/?generate=1&diet_type=anything&cals=${tdee}" target="_blank">EatThisMuch</a>.
                 </p>
                  <p class="card-text"> 
                     <span class="fw-bolder text-info">Have at home: </span>
@@ -297,7 +297,7 @@ function buildTips(tdee) {
                 </p>
             </div>
         </div>
-    ` 
+    `;
     return html;
 
 }
@@ -309,32 +309,32 @@ function glueCards(bmi, tdee = "", macros = "", tips = "") {
             <div class="col-md-6 col-sm-12 mt-4">
                 ${bmi}
             </div> 
-        `
+        `;
     if (tdee != "") {
         html += `
             <div class="col-md-6 col-sm-12 mt-4">
                 ${tdee}
             </div>
-        `
+        `;
     }
     if (macros != "") {
         html += `
             <div class="col-md-6 col-sm-12 mt-4">
                 ${macros}
              </div>
-        `
+        `;
     }
     if (tips != "") {
         html += `
             <div class="col-md-6 col-sm-12 mt-4">
                 ${tips}
             </div>
-        `
+        `;
     }
             
     html += `
         </div>
-    `
+    `;
 
     return html;
 }
