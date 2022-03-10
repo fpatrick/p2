@@ -108,13 +108,17 @@ function calcBMI(height, weight) {
     bmi.number = Math.round( (weight / Math.pow(height, 2)) * 100) / 100;
     
     if (bmi.number < 18.5) {
-        bmi.status = "underweight";
+        bmi.status = "Underweight";
+        bmi.color = "text-warning";
     } else if (bmi.number >= 18.5 && bmi.number <= 24.9) {
-        bmi.status = "healthy";
+        bmi.status = "Healthy Weight";
+        bmi.color = "text-success";
     } else if (bmi.number >= 25.0 && bmi.number <= 29.9) {
-        bmi.status = "overweight";
+        bmi.status = "Overweight";
+        bmi.color = "text-warning";
     } else if (bmi.number >= 30.0) {
-        bmi.status = "obesity";
+        bmi.status = "Obesity";
+        bmi.color = "text-danger";
     }
 
     return bmi;
@@ -155,19 +159,19 @@ function calcTDEE(person) {
 }
 
 // Build BMI card
-function buildBMI() {
+function buildBMI(bmi) {
     let bmiHTML = `
     <div class="card text-center">
         <div class="card-header">
-        Featured
+            Body Mass Index
         </div>
         <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">
-        2 days ago
+            <h5 class="card-title">
+                <span class="${bmi.color}">${bmi.number}</span> 
+                your weight status is 
+                <span class="${bmi.color}">${bmi.status}</span> 
+            </h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
         </div>
     </div>
     ` 
@@ -177,6 +181,19 @@ function buildBMI() {
 
 
 
+
+function glueCards(bmi, tdee) {
+    let html = `
+        <div class="row">
+            <div class="col">
+                ${bmi}
+            </div>
+            <div class="col">
+                ${tdee}
+            </div>
+        </div>
+    `
+}
 
 // on submit
 function handleSubmit(event){
@@ -212,6 +229,7 @@ function handleSubmit(event){
     let tdee = calcTDEE(person);
     let bmi = calcBMI(person.height, person.weight);
 
+    let html = glueCards(bmi, tdee);
     
     //form.submit();
 }

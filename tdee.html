@@ -1,141 +1,149 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Your Numbers - TDEE Calculator</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark navBg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Your Numbers</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="tdee.html">TDEE Calculator</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="bmi.html">BMI Calculator</a>
-              </li>
-            </ul>
-            <span class="navbar-text">
-              erick.patrick@pm.me
-            </span>
+  <!-- Custom CSS -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <title>Your Numbers - TDEE Calculator</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navBg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Your Numbers</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="tdee.html">TDEE Calculator</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bmi.html">BMI Calculator</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            erick.patrick@pm.me
+          </span>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h1 class="display-5"> TDEE and BMI Calculator </h1>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 p-5 rounded calcBg">
+            <form id="tdeeForm">
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="whatSystem" id="metricSystem" checked>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Metric
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="whatSystem" id="imperialSystem">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Imperial
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <div id="heightWeight">
+                <!-- Metric or Imperial system build on javascript -->
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-3">
+                  <div class="form-floating">
+                    <input required type="number" min="18" max="85" class="form-control" placeholder="Enter your age"
+                      id="age"></input>
+                    <label for="age" class="black">Age</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <select required class="form-select" id="activity" aria-label="Select your level of activity">
+                    <option value="">Select your level of activity</option>
+                    <option value="sedentary">Sedentary (limited exercise)</option>
+                    <option value="light">Lightly active (light exercise less than three days per week)</option>
+                    <option value="moderate">Moderately active (moderate exercise most days of the week)</option>
+                    <option value="very">Very active (hard exercise every day)</option>
+                    <option value="extra">Extra active (strenuous exercise two or more times per day)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" checked>
+                    <label class="form-check-label" for="male">
+                      Male
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female">
+                    <label class="form-check-label" for="female">
+                      Female
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col offset-md-5 ">
+                  <button type="submit" class="btn btn-primary">Calculate!</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-      </nav>
-    </header>
-    <div class="container">
-        <main>
-            <div class="py-5 text-center">
-                <h1 class="display-5"> TDEE and BMI Calculator </h1>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3 p-5 rounded calcBg">
-                        <form id="tdeeForm">
+      </div>
+    </main>
+    <section>
+      <div id="cards">
+        <!-- Generate cards with scripts -->
+      </div>
+    </section>
+  </div>
+  <footer>
 
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="whatSystem" id="metricSystem" checked>
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                          Metric
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="whatSystem" id="imperialSystem">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                          Imperial
-                                        </label>
-                                      </div>
-                                </div>
-                            </div>
-
-                            <hr class="my-4">
-                            <div id="heightWeight">
-                                <!-- Metric or Imperial system build on javascript -->
-                            </div>
-
-                            <div class="row mb-4">
-                                <div class="col-3">
-                                    <div class="form-floating">
-                                        <input required type="number" min="18" max="85" class="form-control" placeholder="Enter your age" id="age"></input>
-                                        <label for="age" class="black">Age</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <select required class="form-select" id="activity" aria-label="Select your level of activity">
-                                        <option value="">Select your level of activity</option>
-                                        <option value="sedentary">Sedentary (limited exercise)</option>
-                                        <option value="light">Lightly active (light exercise less than three days per week)</option>
-                                        <option value="moderate">Moderately active (moderate exercise most days of the week)</option>
-                                        <option value="very">Very active (hard exercise every day)</option>
-                                        <option value="extra">Extra active (strenuous exercise two or more times per day)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="male" checked>
-                                        <label class="form-check-label" for="male">
-                                          Male
-                                        </label>
-                                      </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="female">
-                                        <label class="form-check-label" for="female">
-                                          Female
-                                        </label>
-                                      </div>
-                                </div>
-                            </div>
-
-                            <div class="row mb-4">
-                                <div class="col offset-md-5 ">
-                                    <button type="submit" class="btn btn-primary">Calculate!</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-    <footer>
-
-    </footer>
+  </footer>
 
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
 
-    <!--My Custom Script -->
-    <script src="assets/js/script.js"></script>
-  </body>
+  <!--My Custom Script -->
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
