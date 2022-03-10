@@ -195,7 +195,9 @@ function buildBMI(bmi) {
                 and weight status is 
                 <span class="${bmi.color}">${bmi.status}</span> 
             </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text fw-lighter">
+                BMI does not take into account whether the weight is carried as muscle or fat.
+            </p>
         </div>
     </div>
     ` 
@@ -215,7 +217,9 @@ function buildTDEE(tdee) {
                 <p class="text-info h2 fw-bolder">${tdee}</p> 
                 calories daily
             </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text fw-lighter">
+                Calculaded using Mifflin-St. Jeor equation.
+            </p>
         </div>
     </div>
     ` 
