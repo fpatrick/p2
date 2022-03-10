@@ -306,18 +306,16 @@ function buildTips(tdee) {
 function glueCards(bmi, tdee = "", macros = "", tips = "") {
     let html = `
         <div class="row">
-            <div class="col">
+            <div class="col-md-6 col-sm-12 mt-4">
                 ${bmi}
             </div>
-            <div class="col">
+            <div class="col-md-6 col-sm-12 mt-4">
                 ${tdee}
             </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col">
+            <div class="col-md-6 col-sm-12 mt-4">
                 ${macros}
             </div>
-            <div class="col">
+            <div class="col-md-6 col-sm-12 mt-4">
                 ${tips}
             </div>
         </div>
@@ -370,8 +368,6 @@ function handleSubmit(event){
     cards.innerHTML = glueCards(bmiHTML, tdeeHTML, macrosHTML, tips);
     cards.scrollIntoView();
 
-
-    //form.submit();
 }
 
 // on submit bmi
