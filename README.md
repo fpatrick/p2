@@ -77,6 +77,10 @@ It is fully responsive, easy to navigate, fast, scalable, and never requires to 
       - Function with the largest signature take 4 arguments, while the median is 1.
       - Largest function has 28 statements in it, while the median is 3.
       - The most complex function has a cyclomatic complexity value of 8 while the median is 1.
+- Score
+    - Lighthouse returned the following metrics: 
+        ![score](https://user-images.githubusercontent.com/39106404/157756403-15a78e9e-0b59-4a5a-b392-3341955c1e3d.png)
+
 
 ### Unfixed Bugs
 
