@@ -160,20 +160,34 @@ function calcTDEE(person) {
 
 // Calculate macros
 function calcMacros(tdee) {
-    let macros = {};
+    let tdeeCut = tdee - 500;
+    let macros = {
+        //Maintain weight
+        main: {
+            tdee: tdee,
+            carbs: Math.round((tdee * 0.40) / 4),
+            fats: Math.round((tdee * 0.30) / 9),
+            proteins: Math.round((tdee * 0.30) / 4),
+        },
+        //Lose weight
+        cut: {
+            test: "nada"
+        }
+    };
    
     //Maintain weight
-    macros.main.carbs = Math.pow((tdee * 0.40) / 4);
-    macros.main.fats = Math.pow((tdee * 0.30) / 9);
-    macros.main.proteins = Math.pow((tdee * 0.30) / 4);
-    macros.main.tdee = tdee;
+    //macros.main.carbs = Math.pow((tdee * 0.40) / 4);
+    
+    //macros.main.fats = Math.pow((tdee * 0.30) / 9);
+    //macros.main.proteins = Math.pow((tdee * 0.30) / 4);
+   // macros.main.tdee = tdee;
 
-    //Lose weight
-    tdee -= 500;
-    macros.cut.carbs = Math.pow((tdee * 0.40) / 4);
-    macros.cut.fats = Math.pow((tdee * 0.30) / 9);
-    macros.cut.proteins = Math.pow((tdee * 0.30) / 4);
-    macros.cut.tdee = tdee;
+    
+    //tdee -= 500;
+    //macros.cut.carbs = Math.pow((tdee * 0.40) / 4);
+    //macros.cut.fats = Math.pow((tdee * 0.30) / 9);
+    //macros.cut.proteins = Math.pow((tdee * 0.30) / 4);
+    //macros.cut.tdee = tdee;
 
     return macros;
 }
@@ -228,8 +242,13 @@ function buildMacros(macros) {
             </div>
             <div class="card-body">
                 <div class="col>
-                    Based on your TDEE of ${macros.tdee}c daily 
-                    <p class="text-info h2 fw-bolder">${tdee}</p> 
+
+                    <h5 class="card-title">
+                        Your TDEE is 
+                        
+                    </h5>
+
+                    <p class="text-info h2 fw-bolder">${macros.main.carbs}</p> 
                     calories daily
                 </div>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -245,7 +264,7 @@ function buildTips() {
 }
 
 // put all cards together
-function glueCards(bmi, tdee, macrosHTML) {
+function glueCards(bmi, tdee, macros) {
     let html = `
         <div class="row">
             <div class="col">
@@ -253,6 +272,14 @@ function glueCards(bmi, tdee, macrosHTML) {
             </div>
             <div class="col">
                 ${tdee}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                ${macros}
+            </div>
+            <div class="col">
+                
             </div>
         </div>
     `
