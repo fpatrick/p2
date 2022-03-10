@@ -114,7 +114,7 @@ function calcBMI(height, weight) {
         bmi.status = "Underweight";
         bmi.color = "text-warning";
     } else if (bmi.number >= 18.5 && bmi.number <= 24.9) {
-        bmi.status = "Healthy Weight";
+        bmi.status = "Healthy";
         bmi.color = "text-success";
     } else if (bmi.number >= 25.0 && bmi.number <= 29.9) {
         bmi.status = "Overweight";
