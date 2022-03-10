@@ -161,9 +161,19 @@ function calcTDEE(person) {
 // Calculate macros
 function calcMacros(tdee) {
     let macros = {};
-    macros.carbs = Math.pow((tdee * 0.40) / 4);
-    macros.fats = Math.pow((tdee * 0.30) / 9);
-    macros.proteins = Math.pow((tdee * 0.30) / 4);
+   
+    //Maintain weight
+    macros.main.carbs = Math.pow((tdee * 0.40) / 4);
+    macros.main.fats = Math.pow((tdee * 0.30) / 9);
+    macros.main.proteins = Math.pow((tdee * 0.30) / 4);
+    macros.main.tdee = tdee;
+
+    //Lose weight
+    tdee -= 500;
+    macros.cut.carbs = Math.pow((tdee * 0.40) / 4);
+    macros.cut.fats = Math.pow((tdee * 0.30) / 9);
+    macros.cut.proteins = Math.pow((tdee * 0.30) / 4);
+    macros.cut.tdee = tdee;
 
     return macros;
 }
@@ -210,18 +220,18 @@ function buildTDEE(tdee) {
 }
 
 // Build macro card
-function buildMacro() {
+function buildMacros(macros) {
     let html = `
         <div class="card text-center">
             <div class="card-header">
-            Total Daily Energy Expenditure
+                Average Macronutrients Sugestion
             </div>
             <div class="card-body">
-                <h5 class="card-title">
-                    Your TDEE is 
+                <div class="col>
+                    Based on your TDEE of ${macros.tdee}c daily 
                     <p class="text-info h2 fw-bolder">${tdee}</p> 
                     calories daily
-                </h5>
+                </div>
                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
             </div>
         </div>
@@ -235,7 +245,7 @@ function buildTips() {
 }
 
 // put all cards together
-function glueCards(bmi, tdee) {
+function glueCards(bmi, tdee, macrosHTML) {
     let html = `
         <div class="row">
             <div class="col">
@@ -281,12 +291,15 @@ function handleSubmit(event){
         person.weight = document.getElementById("weight").value;
     }
 
-    let tdeeResult = calcTDEE(person);
-    let bmiResult = calcBMI(person.height, person.weight);
-    let tdee = buildTDEE(tdeeResult);
-    let bmi = buildBMI(bmiResult);
+    let tdee = calcTDEE(person);
+    let bmi = calcBMI(person.height, person.weight);
+    let macros = calcMacros(tdee);
 
-    document.getElementById("cards").innerHTML = glueCards(bmi, tdee);
+    let tdeeHTML = buildTDEE(tdee);
+    let bmiHTML = buildBMI(bmi);
+    let macrosHTML = buildMacros(macros);
+
+    document.getElementById("cards").innerHTML = glueCards(bmiHTML, tdeeHTML, macrosHTML);
     
     //form.submit();
 }
