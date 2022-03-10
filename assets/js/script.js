@@ -308,16 +308,31 @@ function glueCards(bmi, tdee = "", macros = "", tips = "") {
         <div class="row">
             <div class="col-md-6 col-sm-12 mt-4">
                 ${bmi}
-            </div>
+            </div> 
+        `
+    if (tdee != "") {
+        html += `
             <div class="col-md-6 col-sm-12 mt-4">
                 ${tdee}
             </div>
+        `
+    }
+    if (macros != "") {
+        html += `
             <div class="col-md-6 col-sm-12 mt-4">
                 ${macros}
-            </div>
+             </div>
+        `
+    }
+    if (tips != "") {
+        html += `
             <div class="col-md-6 col-sm-12 mt-4">
                 ${tips}
             </div>
+        `
+    }
+            
+    html += `
         </div>
     `
 
