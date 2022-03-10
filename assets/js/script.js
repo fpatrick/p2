@@ -264,12 +264,43 @@ function buildMacros(macros) {
 
 }
 // Build recomendations card
-function buildTips() {
+function buildTips(tdee) {
+    let html = `
+        <div class="card text-center">
+            <div class="card-header">
+                Tools Recomendation
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    Tools to help you achive your objectives
+                </h5>
+                <p class="card-text"> 
+                    <span class="fw-bolder text-primary">Calorie Tracker: </span>
+                    App for iOS and Android
+                    <a href="https://www.myfitnesspal.com">MyFitnessPal</a>.
+                </p>
+                <p class="card-text"> 
+                    <span class="fw-bolder text-primary">Recipes: </span>
+                    Create personalized meal plans based on your food preferences, budget, and schedule with 
+                    <a href="https://www.eatthismuch.com/?generate=1&diet_type=anything&cals=${tdee}">EatThisMuch</a>.
+                </p>
+                 <p class="card-text"> 
+                    <span class="fw-bolder text-primary">Have at home: </span>
+                    A good <strong>food scale</strong> and <strong>bathroom scale.</strong>
+                    
+                </p>
+                <p class="card-text fw-lighter">
+                    Keep track of your vitamins needs especially Vitamin D.
+                </p>
+            </div>
+        </div>
+    ` 
+    return html;
 
 }
 
 // put all cards together
-function glueCards(bmi, tdee, macros) {
+function glueCards(bmi, tdee, macros, tips) {
     let html = `
         <div class="row">
             <div class="col">
@@ -284,7 +315,7 @@ function glueCards(bmi, tdee, macros) {
                 ${macros}
             </div>
             <div class="col">
-                
+                ${tips}
             </div>
         </div>
     `
@@ -330,8 +361,9 @@ function handleSubmit(event){
     let tdeeHTML = buildTDEE(tdee);
     let bmiHTML = buildBMI(bmi);
     let macrosHTML = buildMacros(macros);
+    let tips = buildTips(tdee);
 
-    document.getElementById("cards").innerHTML = glueCards(bmiHTML, tdeeHTML, macrosHTML);
+    document.getElementById("cards").innerHTML = glueCards(bmiHTML, tdeeHTML, macrosHTML, tips);
     
     //form.submit();
 }
