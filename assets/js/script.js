@@ -160,26 +160,24 @@ function calcTDEE(person) {
 
 // Build BMI card
 function buildBMI(bmi) {
-    let bmiHTML = `
+    let html = `
     <div class="card text-center">
         <div class="card-header">
             Body Mass Index
         </div>
         <div class="card-body">
             <h5 class="card-title">
+                Your BMI is 
                 <span class="${bmi.color}">${bmi.number}</span> 
-                your weight status is 
+                and weight status is 
                 <span class="${bmi.color}">${bmi.status}</span> 
             </h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
         </div>
     </div>
     ` 
+    return html;
 }
-
-
-
-
 
 
 function glueCards(bmi, tdee) {
@@ -193,6 +191,8 @@ function glueCards(bmi, tdee) {
             </div>
         </div>
     `
+
+    return html;
 }
 
 // on submit
@@ -226,10 +226,12 @@ function handleSubmit(event){
         person.weight = document.getElementById("weight").value;
     }
 
-    let tdee = calcTDEE(person);
-    let bmi = calcBMI(person.height, person.weight);
+    let tdeeResult = calcTDEE(person);
+    let bmiResult = calcBMI(person.height, person.weight);
+    let tdee = "aqui vem o tdee";
+    let bmi = buildBMI(bmiResult);
 
-    let html = glueCards(bmi, tdee);
+    document.getElementById("cards").innerHTML = glueCards(bmi, tdee);
     
     //form.submit();
 }
